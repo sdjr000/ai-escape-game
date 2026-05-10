@@ -186,9 +186,9 @@ export const useGameStore = create<GameStore>((set, get) => {
       // 检查是否是结局选择
       const scene = store.storyManager.currentScene;
       if (scene?.isEnding) {
-        // 直接触发结局
+        // 直接触发结局（优先使用选项指定的结局）
         store.storyManager.makeChoice(choiceId);
-        store.setGameOver(scene.endingType || EndingType.InfiniteLoop);
+        store.setGameOver(choice.forceEnding || scene.endingType || EndingType.InfiniteLoop);
         return;
       }
 

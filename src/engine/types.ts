@@ -47,6 +47,7 @@ export interface Choice {
   aiStateDelta?: Partial<Record<AIState, number>>;
   isCorrect?: boolean;
   isTrap?: boolean;
+  forceEnding?: EndingType;
 }
 
 // 游戏场景
